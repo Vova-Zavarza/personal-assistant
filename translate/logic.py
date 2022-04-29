@@ -1,5 +1,10 @@
+import os
+
+path = r'C:\project\personal-assistant\translate\files\\'[:-1]
+
+
 def write(file):
-    f = open(r'C:\testCode\Germany\translate\files\\'[:-1] + file + '.txt', 'a')
+    f = open(path + file, 'a')
     while True:
         word = input('New word: ')
         if word == 'close':
@@ -13,7 +18,7 @@ def write(file):
 
 
 def read(file):
-    f = open(r'C:\testCode\Germany\translate\files\\'[:-1] + file + '.txt')
+    f = open(path + file)
     words = f.readline()
     while words != '':
         for char in words:
@@ -27,14 +32,11 @@ def read(file):
 
 
 def listfile():
-    files = open(r'C:\testCode\Germany\translate\files\listfile.txt')
-    list_files = files.read().split(',')
-    return list_files
+    files = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
+    return files
 
 
 def append_listfile():
-    files = open(r'C:\testCode\Germany\translate\files\listfile.txt', 'a')
     new_file = input('Name of new file: ')
-    files.write(',' + new_file)
     write(new_file)
 

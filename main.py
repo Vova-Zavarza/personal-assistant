@@ -2,15 +2,14 @@ import sys
 import subprocess
 import time
 
-sys.path.append(r'C:\testCode\Germany\translate')
+sys.path.append(r'C:\project\personal-assistant\translate')
 import main_translate
 
 
 def clock():
     current_time = time.strftime(' %A/%B Time: %H:%M.%S Date: %d.%m.%Y')
-    print('|' + '-' * (len(current_time)-1) + '|')
-    print(current_time)
-    print('|' + '-' * (len(current_time)-1) + '|')
+    cover = '|' + '-' * (len(current_time)-1) + '|'
+    print(cover + '\n' + current_time + '\n' + cover)
 
 
 if sys.platform[:3] == 'win':
